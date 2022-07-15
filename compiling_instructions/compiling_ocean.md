@@ -16,7 +16,6 @@
 7. `$ make -j4`
 
 # Testing executables / Ctests
-
 * Testing all the SpECTRE executables
 
 `$ make -j6  test-executables`
@@ -26,7 +25,6 @@
 `$ ctest --output-on-failure -j<number of cores>`
 
 # COMPILE AND RUN (location) an executable 
-
 `$ make -j4 <Executable>`
 
 `$ ./bin/<Executable>`
