@@ -1,0 +1,221 @@
+\documentclass{article}
+\usepackage{amsmath}
+\oddsidemargin -0.25in
+\evensidemargin -0.25in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+\footskip 0.5in
+\textwidth = 7in
+\textheight = 9in
+
+\title{Spherical Kerr-Schild Coordinates}
+\author{Yitian Chen (yc2377@cornell.edu)}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This article contains all useful formulae to construct a spinning black-hole (BH) in spherical Kerr-Schild (SphKS) coordinates. Since They are closely related to Kerr-Schild (KS) coordinates, we follow the symbol convention of Kerr-Schild (KS) in the file \textit{KerrSchildCoords.tex} in the same folder. We first describe a rotating BH with spin along $z$ axis in SphKS, and later generalize the spin to any direction. As KS coordinates use symbol $\{t,x,y,z\}$, we denote SphKS coordinates as $\{t,\bar{x},\bar{y},\bar{z}\}$.
+
+
+\section{Spin in the z direction}
+\subsection{Transformation}
+In KS, the Boyer-Lindquist radius $r$ at a point satisfies an equation of spheroid
+\begin{eqnarray}
+	\frac{x^2+y^2}{r^2+a^2}+\frac{z^2}{r^2} = 1,
+\end{eqnarray}
+or equivalently,
+\begin{eqnarray}
+	r^2 = \frac{1}{2}(x^2 + y^2 + z^2 - a^2) 
+	+ \left(\frac{1}{4}(x^2 + y^2 + z^2 - a^2)^2 + a^2 z^2\right)^{1/2}.
+\end{eqnarray}
+$\vec{\bar{x}} = \bar{x}^i = \bar{x}_i = (\bar{x},\bar{y},\bar{z})$ is related to $\vec{x} = x^i = x_i = (x,y,z)$ by
+\begin{eqnarray}
+	\rho^2 &\equiv& r^2+a^2, \\
+	\left(\frac{\bar{x}}{r},\frac{\bar{y}}{r},\frac{\bar{z}}{r}\right) &\equiv& 
+	\left(\frac{x}{\rho},\frac{y}{\rho},\frac{z}{r}\right),
+\end{eqnarray}
+or more compactly,
+\begin{eqnarray}
+	x^i &=& P^i_{\ j} \bar{x}^j, \\
+	\bar{x}^i &=& Q^i_{\ j} x^j, \\
+	P^i_{\ j} &\equiv& \mbox{Diagonal} \left(\frac{\rho}{r},\frac{\rho}{r},1\right), \\
+	Q^i_{\ j} &\equiv& (P^{-1})^i_{\ j} \ =\  \mbox{Diagonal}\left(\frac{r}{\rho},\frac{r}{\rho},1\right).
+\end{eqnarray}
+Thus, $r$ satisfies the equation of sphere in SphKS
+\begin{eqnarray}
+	r^2 &=& \vec{\bar{x}}\cdot \vec{\bar{x}} \ =\  \bar{x}^2+\bar{y}^2+\bar{z}^2.
+\end{eqnarray}
+In other words, Euclidean radius coincides with Boyer-Lindquist radius, in SphKS. The Jacobian $T^i_{\ j}$ is
+\begin{eqnarray}
+	dx^i &=& T^i_{\ j} d\bar{x}^j, \\
+	F^i_{\ k} &\equiv& -\frac{a^2}{\rho r^3}\cdot\mbox{Diagonal} (1,1,0), \\
+	T^i_{\ j} &=& P^i_{\ j} +F^i_{\ k}\bar{x}^k\bar{x}_j. 
+\end{eqnarray}
+Its inverse $S^i_{\ j} = (T^{-1})^i_{\ j}$ is
+\begin{eqnarray}
+	(G_1)^i_{\ m} &\equiv& -\frac{r^2}{\rho}F^i_{\ m} \ =\  \frac{a^2}{\rho^2 r} \cdot\mbox{Diagonal} (1,1,0), \\
+	s &\equiv& r^2+\frac{a^2z^2}{r^2}, \\
+	(G_2)^n_{\ j} &\equiv& \frac{\rho^2}{sr}Q^n_{\ j} \ =\  \frac{\rho}{s}\cdot\mbox{Diagonal}\left(1,1,\frac{\rho}{r}\right),, \\
+	S^i_{\ j} &=& Q^i_{\ j} +(G_1)^i_{\ m}\bar{x}^m\bar{x}_n(G_2)^n_{\ j}.
+\end{eqnarray}
+
+\subsection{Metric}
+The spatial metric is
+\begin{eqnarray}
+	g_{ij} &=& \bar{\eta}_{ij} +2H\bar{l}_i\bar{l}_j, \\
+	\bar{\eta}_{ij} &=& \eta_{mn} T^m_{\ \ i} T^n_{\ \ j}, \\
+	H &=& \frac{r^3}{r^4 + a^2z^2} \ =\ \frac{r}{s}, \\
+	l_i &=&  l^i \ =\  \frac{r\vec{x}-\vec{a}\times\vec{x}+\displaystyle\frac{(\vec{a}\cdot\vec{x})\vec{a}}{r}}{\rho^2}, \\
+	\bar{l}_i &=& T^m_{\ \ i} l_m, \\
+	\bar{l}^i &=& S^i_{\ m} l^m, 
+\end{eqnarray}
+and the spacetime metric is
+\begin{eqnarray}
+	\psi_{\mu\nu} &=& \bar{\eta}_{\mu\nu} + 2 H \bar{l}_\mu \bar{l}_\nu, \\
+	\bar{l}_{\mu} &=& (1, \bar{l}_i), \\
+	\bar{l}^{\mu} &=& (-1, \bar{l}^i), \\
+	\bar{\eta}_{\mu\nu} &=& (-1)\otimes \bar{\eta}_{ij}. 
+\end{eqnarray}
+Lapse and shift are
+\begin{eqnarray}
+	\beta^i &=& \frac{2 H \bar{l}^i}{1+2H}\ = \ 2 H \alpha^2 \bar{l}^i,\\
+	\beta_i &=& 2 H \bar{l}_i, \\
+	\alpha &=& (1+2 H)^{-1/2}.
+\end{eqnarray}
+
+\subsection{Derivatives}
+In the following, symbol $\partial_i$ always refers to the derivative relative to $\bar{x}^i$. Derivatives of the Jacobian and its inverse are
+\begin{eqnarray}
+	D^i_{\ j} &\equiv& \frac{a^2}{\rho^3 r}\cdot\mbox{Diagonal}(1,1,0), \\
+	C^i_{\ m} &\equiv& D^i_{\ m}-3F^i_{\ m} \ =\  \frac{a^2}{\rho r} \left(\frac{1}{\rho^2}+\frac{3}{r^2}\right) \cdot\mbox{Diagonal}(1,1,0), \\
+	\partial_{k}T^i_{\ j} &=& F^i_{\ j}\bar{x}_k+ F^i_{\ k}\bar{x}_j+ F^i_{\ m}\bar{x}^m \delta_{jk}+ C^i_{\ m} \frac{\bar{x}_k\bar{x}^m\bar{x}_j}{r^2}, \\
+	(E_1)^i_{\ m} &\equiv& -\frac{a^2}{\rho^2} \left(\frac{1}{r^2}+\frac{2}{\rho^2}\right) \cdot\mbox{Diagonal}(1,1,0), \\
+	(E_2)^n_{\ j} &\equiv& \left[-\frac{a^2}{\rho^2 r}-\frac{2}{s}\left(r -\frac{a^2\bar{z}^2}{r^3}\right)\right] \cdot(G_2)^n_{\ j} + \frac{1}{s}P^n_{\ j}, \\
+	\partial_{k}S^i_{\ j} &=& D^i_{\ j}\bar{x}_k +(G_1)^i_{\ k}\bar{x}_n(G_2)^n_{\ j} +(G_1)^i_{\ m}\bar{x}^m(G_2)_{kj} 
+	\nonumber \\
+	&&+(E_1)^i_{\ m} \frac{\bar{x}_k\bar{x}^m\bar{x}_n}{r} (G_2)^n_{\ j} +(G_1)^i_{\ m} \frac{\bar{x}_k\bar{x}^m\bar{x}_n}{r} (E_2)^n_{\ j} -(G_1)^i_{\ m}\bar{x}^m\bar{x}_n(G_2)^n_{\ j}\frac{2a^2\bar{z}}{sr^2}\delta_{k\bar{z}}.
+\end{eqnarray}
+where $(G_2)_{kj} \equiv (G_2)^k_{\ j}$ and $\delta_{k\bar{z}}$ is 1 if $k=\bar{z}$ but 0 otherwise. Other important derivatives are
+\begin{eqnarray}
+	\frac{\partial r}{\partial x^i} &=& \frac{r^2 x_i + (\vec{a}\cdot\vec{x}) a_i}{ 
+	rs},\\
+	\partial_{i} H &=& 
+	HT^m_{\ \ i}\left[\frac{3}{r}\frac{\partial r}{\partial x^m} - \frac{4 r^3 \displaystyle\frac{\partial r}{\partial x^m} + 2(\vec{a}\cdot\vec{x})a_m}{r^4 + (\vec{a}\cdot\vec{x})^2}\right] , \\
+	\partial_{j} \bar{l}_i &=& T^k_{\ i} T^m_{\ \ j} \frac{1}{\rho^2} \left[ \left(x_k-2 r l_k-\frac{(\vec{a}\cdot\vec{x})a_k}{r^2}\right) \frac{\partial r}{\partial x^m}
+	+ r\delta_{km} + \frac{a_k a_m}{r} - \epsilon^{kmn} a_n \right]  +l_k \partial_{j}T^k_{\ i}, \\
+	\partial_{k}g_{i j} &=& 2 \bar{l}_i \bar{l}_j\partial_{k} H + 4 H \bar{l}_{(i} \partial_{k}\bar{l}_{j)} +T^m_{\ \ j}\partial_{k} T^m_{\ \ i} +T^m_{\ \ i}\partial_{k} T^m_{\ \ j}, \\
+	\partial_{k}\alpha &=& -(1+2 H)^{-3/2}\partial_{k}H \ = \ -\alpha^3\partial_{k}H,\\
+	\partial_{k}\beta^i &=& 2\alpha^2
+	\left[\bar{l}^i\partial_{k}H+H(S^i_{\ j}S^m_{\ \ j}\partial_{k}\bar{l}_m +S^i_{\ j}\bar{l}_m\partial_{k}S^m_{\ \ j}+S^m_{\ \ j}\bar{l}_m\partial_{k}S^i_{\ \ j})\right]
+	- 4 H \bar{l}^i \alpha^4\partial_{k}H,
+\end{eqnarray}
+where $\epsilon^{kmn}$ is the antisymetric symbol and $\epsilon^{xyz}=+1$. 
+
+\section{Spin in an arbitrary direction}
+\subsection{Transformation}
+Now, we generalize the spin to arbitrary direction. The spin vector is $\vec{a}$ and the unit vector along its direction is $\hat{a}$ (meaningful only if spin is nonzero). In KS, $r$ satisfies
+\begin{eqnarray}
+	r^2 &=& \frac{1}{2}(\vec{x}\cdot \vec{x} - a^2) 
+	+ \left(\frac{1}{4}(\vec{x}\cdot \vec{x} - a^2)^2 + (\vec{a}\cdot \vec{x})^2\right)^{1/2}, \\
+	\rho^2 &\equiv& r^2+a^2,
+\end{eqnarray}
+and we define $\vec{\bar{x}} = \bar{x}^i = \bar{x}_i = (\bar{x},\bar{y},\bar{z})$ in terms of $\vec{x} = x^i = x_i = (x,y,z)$ as
+\begin{eqnarray}
+	Q^i_{\ j} &\equiv& \frac{r}{\rho}\delta^i_{\ j}+\frac{1}{(\rho+r)\rho}a^ia_j, \\
+	P^i_{\ j} &\equiv& \frac{\rho}{r}\delta^i_{\ j}-\frac{1}{(\rho+r)r}a^ia_j, \\
+	\vec{\bar{x}} &\equiv& Q^i_{\ j}x^j \ =\  Q\vec{x}, \\
+	\vec{x} &=& P^i_{\ j}\bar{x}^j \ =\  P\vec{\bar{x}}.
+\end{eqnarray}
+Note that 
+\begin{itemize}
+	\item as $a\rightarrow0$, both $P$ and $Q$ tend to the identity. If $a$ is nonzero, $P$ and $Q$ can be written in projection matrices:
+\begin{eqnarray}
+	Q^i_{\ j} &=& \frac{r}{\rho}(P_\perp)^i_{\ j}+(P_{//})^i_{\ j}, \\
+	P^i_{\ j} &=& \frac{\rho}{r}(P_\perp)^i_{\ j}+(P_{//})^i_{\ j}, \\
+	(P_\perp)^i_{\ j} &\equiv& \delta^i_{\ j}-\hat{a}^i\hat{a}_j, \\
+	(P_{//})^i_{\ j} &\equiv& \hat{a}^i\hat{a}_j.
+\end{eqnarray}
+One should be careful about the difference between $\hat{a}^i$ and $a^i$ in the above formulae. 
+	\item $r$ still satisfies
+\begin{eqnarray}
+	r^2 &=& \vec{\bar{x}}\cdot \vec{\bar{x}} \ =\  \bar{x}^2+\bar{y}^2+\bar{z}^2.
+\end{eqnarray}
+	\item $\vec{a}\cdot\vec{x}$ and $\vec{a}\cdot\vec{\bar{x}}$ give the same result, i.e. 
+\begin{eqnarray}
+	\vec{a}\cdot\vec{x} &=& \vec{a}\cdot\vec{\bar{x}}.
+\end{eqnarray}
+\end{itemize}
+The Jacobian and its inverse are
+\begin{eqnarray}
+dx^i &=& T^i_{\ j} d\bar{x}^j, \\
+F^i_{\ k} &\equiv& -\frac{1}{\rho r^3}(a^2\delta^i_{\ j}-a^ia_j), \\
+T^i_{\ j} &=& P^i_{\ j} +F^i_{\ k}\bar{x}^k\bar{x}_j, \\
+(G_1)^i_{\ m} &\equiv& \frac{1}{\rho^2 r}(a^2\delta^i_{\ m}-a^ia_m), \\
+s &\equiv& r^2+\frac{(\vec{a}\cdot\vec{x})^2}{r^2}, \\
+(G_2)^n_{\ j} &\equiv& \frac{\rho^2}{sr} Q^n_{\ j}, \\
+S^i_{\ j} &=& (T^{-1})^i_{\ j} \ =\ Q^i_{\ j} +(G_1)^i_{\ m}\bar{x}^m\bar{x}_n(G_2)^n_{\ j}.
+\end{eqnarray}
+
+\subsection{Metric}
+Metrics, lapse and shift formulae are unchanged, but we copy them here for convenience.
+\begin{eqnarray}
+g_{ij} &=& \bar{\eta}_{ij} +2H\bar{l}_i\bar{l}_j, \\
+\bar{\eta}_{ij} &=& \eta_{mn} T^m_{\ \ i} T^n_{\ \ j}, \\
+H &=& \frac{r^3}{r^4 + (\vec{a}\cdot \vec{x})^2}, \\
+l_i &=& l^i \ =\  \frac{r\vec{x}-\vec{a}\times\vec{x}+\displaystyle\frac{(\vec{a}\cdot\vec{x})\vec{a}}{r}}{\rho^2}, \\
+\bar{l}_i &=& T^m_{\ \ i} l_m, \\
+\bar{l}^i &=& S^i_{\ m} l^m, \\
+\psi_{\mu\nu} &=& \bar{\eta}_{\mu\nu} + 2 H \bar{l}_\mu \bar{l}_\nu, \\
+\bar{l}_{\mu} &=& (1, \bar{l}_i), \\
+\bar{l}^{\mu} &=& (-1, \bar{l}^i), \\
+\bar{\eta}_{\mu\nu} &=& (-1)\otimes \bar{\eta}_{ij}, \\
+\beta^i &=& \frac{2 H \bar{l}^i}{1+2H}\ = \ 2 H \alpha^2 \bar{l}^i,\\
+\beta_i &=& 2 H \bar{l}_i, \\
+\alpha &=& (1+2 H)^{-1/2}.
+\end{eqnarray}
+
+\subsection{Derivatives}
+Important derivatives are
+\begin{eqnarray}
+D^i_{\ j} &\equiv& \frac{1}{\rho^3 r}(a^2\delta^i_{\ m}-a^ia_m), \\
+C^i_{\ m} &\equiv& D^i_{\ m}-3F^i_{\ m} \ =\  \frac{1}{\rho r} \left(\frac{1}{\rho^2}+\frac{3}{r^2}\right) (a^2\delta^i_{\ m}-a^ia_m), \\
+\partial_{k}T^i_{\ j} &=& F^i_{\ j}\bar{x}_k+ F^i_{\ k}\bar{x}_j+ F^i_{\ m}\bar{x}^m \delta_{jk}+ C^i_{\ m} \frac{\bar{x}_k\bar{x}^m\bar{x}_j}{r^2}, \\
+(E_1)^i_{\ m} &\equiv& -\frac{1}{\rho^2} \left(\frac{1}{r^2}+\frac{2}{\rho^2}\right) (a^2\delta^i_{\ m}-a^ia_m), \\
+(E_2)^n_{\ j} &\equiv& \left[-\frac{a^2}{\rho^2 r}-\frac{2}{s}\left(r -\frac{(\vec{a}\cdot\vec{x})^2}{r^3}\right)\right] \cdot(G_2)^n_{\ j} + \frac{1}{s}P^n_{\ j}, \\
+\partial_{k}S^i_{\ j} &=& D^i_{\ j}\bar{x}_k +(G_1)^i_{\ k}\bar{x}_n(G_2)^n_{\ j} +(G_1)^i_{\ m}\bar{x}^m(G_2)_{kj} \nonumber \\
+&&+(E_1)^i_{\ m} \frac{\bar{x}_k\bar{x}^m\bar{x}_n}{r} (G_2)^n_{\ j} +(G_1)^i_{\ m} \frac{\bar{x}_k\bar{x}^m\bar{x}_n}{r} (E_2)^n_{\ j} -(G_1)^i_{\ m}\bar{x}^m\bar{x}_n(G_2)^n_{\ j}\frac{2\vec{a}\cdot\vec{x}}{sr^2}a_k, \\
+\frac{\partial r}{\partial x^i} &=& \frac{r^2 x_i + (\vec{a}\cdot\vec{x}) a_i}{rs},\\
+\partial_{i} H &=& 
+HT^m_{\ \ i}\left[\frac{3}{r}\frac{\partial r}{\partial x^m} - \frac{4 r^3 \displaystyle\frac{\partial r}{\partial x^m} + 2(\vec{a}\cdot\vec{x})a_m}{r^4 + (\vec{a}\cdot\vec{x})^2}\right] , \\
+\partial_{j} \bar{l}_i &=& T^k_{\ i} T^m_{\ \ j} \frac{1}{\rho^2} \left[ \left(x_k-2 r l_k-\frac{(\vec{a}\cdot\vec{x})a_k}{r^2}\right) \frac{\partial r}{\partial x^m}
++ r\delta_{km} + \frac{a_k a_m}{r} - \epsilon^{kmn} a_n \right]  +l_k \partial_{j}T^k_{\ i}, \\
+\partial_{k}g_{i j} &=& 2 \bar{l}_i \bar{l}_j\partial_{k} H + 4 H \bar{l}_{(i} \partial_{k}\bar{l}_{j)} +T^m_{\ \ j}\partial_{k} T^m_{\ \ i} +T^m_{\ \ i}\partial_{k} T^m_{\ \ j}, \\
+\partial_{k}\alpha &=& -(1+2 H)^{-3/2}\partial_{k}H \ = \ -\alpha^3\partial_{k}H,\\
+\partial_{k}\beta^i &=& 2\alpha^2
+\left[\bar{l}^i\partial_{k}H+H(S^i_{\ j}S^m_{\ \ j}\partial_{k}\bar{l}_m +S^i_{\ j}\bar{l}_m\partial_{k}S^m_{\ \ j}+S^m_{\ \ j}\bar{l}_m\partial_{k}S^i_{\ \ j})\right]
+- 4 H \bar{l}^i \alpha^4\partial_{k}H.
+\end{eqnarray}
+
+\begin{align*}
+	\text{Jacobian Grid Point 1: } \begin{pmatrix}
+		\frac{\rho^{2}r^{2}-4a^{2}}{\rho r^{3}} & 0 & 0 \\
+		0 & \frac{\rho}{r} & 0 \\
+		0 & 0 & 1
+	\end{pmatrix} \\
+	\text{Jacobian Grid Point 2: } \begin{pmatrix}
+		\frac{\rho}{r} & 0 & 0 \\
+		0 & \frac{\rho^{2}r^{2}-4a^{2}}{\rho r^{3}} & 0 \\
+		0 & 0 & 1
+	\end{pmatrix} \\
+	\text{Jacobian Grid Point 3: } \begin{pmatrix}
+		\frac{\rho}{r} & 0 & 0 \\
+		0 & \frac{\rho}{r} & 0 \\
+		0 & 0 & 1
+	\end{pmatrix}
+\end{align*}
+
+\end{document}
